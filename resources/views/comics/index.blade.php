@@ -11,7 +11,7 @@
         {{$comics->links('pagination::bootstrap-5')}}
         <div class="table-responsive">
             <table
-                class="table table-primary">
+                class="table table-success table-bordered table-striped">
                 <thead>
                     <tr>
                         <th scope="col">Image</th>
