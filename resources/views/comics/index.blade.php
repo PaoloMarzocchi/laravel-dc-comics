@@ -4,10 +4,11 @@
 
 <section class="py-5">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center py-3">
             <h2>Comics</h2>
             <a class="btn btn-warning" href="{{route('comics.create')}}">Add comic</a>
         </div>
+        {{$comics->links('pagination::bootstrap-5')}}
         <div class="table-responsive">
             <table
                 class="table table-primary">
@@ -53,7 +54,7 @@
                 </tbody>
             </table>
         </div>
-        
+        {{$comics->links('pagination::bootstrap-5')}}
     </div>
 </section>
 
