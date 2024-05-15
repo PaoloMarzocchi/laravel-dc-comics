@@ -4,6 +4,10 @@
 
 <section class="py-5">
     <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Comics</h2>
+            <a class="btn btn-warning" href="{{route('comics.create')}}">Add comic</a>
+        </div>
         <div class="table-responsive">
             <table
                 class="table table-primary">
@@ -25,12 +29,12 @@
                             <img width="100" src="{{$comic->thumb}}" alt="">
                         </td>
                         <td>{{$comic->title}}</td>
-                        <td>{{$comic->sale_date}}</td>
+                        <td width="160">{{$comic->sale_date}}</td>
                         <td>{{$comic->series}}</td>
                         <td>{{$comic->type}}</td>
                         <td>{{$comic->price}}</td>
                         <td>
-                           <a href="{{route('comics.show',$comic)}}">👁</a> /Edit/Delete
+                           <a class="text-decoration-none" href="{{route('comics.show',$comic)}}">👁</a> /Edit/Delete
                         </td>
                     </tr>
                     @empty
