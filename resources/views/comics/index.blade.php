@@ -29,7 +29,9 @@
                         <td>{{$comic->series}}</td>
                         <td>{{$comic->type}}</td>
                         <td>{{$comic->price}}</td>
-                        <td>View/Edit/Delete</td>
+                        <td>
+                           <a href="{{route('comics.show',$comic)}}">👁</a> /Edit/Delete
+                        </td>
                     </tr>
                     @empty
                     <tr class="">
