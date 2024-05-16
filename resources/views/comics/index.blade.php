@@ -34,9 +34,14 @@
                         <td>{{$comic->series}}</td>
                         <td>{{$comic->type}}</td>
                         <td>{{$comic->price}}</td>
-                        <td>
+                        <td width="180s">
                            <a class="btn btn-secondary" href="{{route('comics.show',$comic)}}">👁</a>
-                           <a class="btn btn-dark" href="{{route('comics.edit',$comic)}}">🖊</a> /Delete
+                           <a class="btn btn-dark" href="{{route('comics.edit',$comic)}}">🖊</a> 
+                           <form class="d-inline" action="{{route('comics.destroy',$comic)}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger" type="submit">🗑</button>
+                            </form>
                         </td>
                     </tr>
                     @empty
