@@ -4,6 +4,10 @@
 
 <section class="py-5">
     <div class="container">
+        <div class="d-flex justify-content-end gap-3 py-3">
+            <a class="btn btn-secondary" href="{{route('comics.index')}}">Go Back</a>
+        </div>
+        
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
