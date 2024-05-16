@@ -4,6 +4,10 @@
 
 <section class="py-5">
     <div class="container">
+        <div class="d-flex justify-content-end gap-3 py-3">
+            <a class="btn btn-secondary" href="{{route('comics.index')}}">Go Back</a>
+            <a class="btn btn-dark" href="{{route('comics.edit',$comic)}}">Edit</a>
+        </div>
         <div class="row">
             <div class="col">
                 <img src="{{$comic->thumb}}" alt="">

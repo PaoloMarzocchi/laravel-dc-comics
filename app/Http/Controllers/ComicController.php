@@ -44,14 +44,14 @@ class ComicController extends Controller
         $comic->save(); */
         $data = $request->validate([
             'title' => 'required|min:3|max:100',
-            'description' => 'nullable|max:500',
+            'description' => 'nullable|max:5000',
             'thumb' => 'nullable|max:255',
             'price' => 'nullable|max:20',
             'series' => 'nullable|max:50',
             'sale_date' => 'nullable|date_format:Y-m-d',
             'type' => 'nullable|max:30',
         ]);
-        dd($data);
+        //dd($data);
         Comic::create($data);
 
 
@@ -83,7 +83,7 @@ class ComicController extends Controller
         //dd($data);
         $data = $request->validate([
             'title' => 'required|min:3|max:100',
-            'description' => 'nullable|max:500',
+            'description' => 'nullable|max:5000',
             'thumb' => 'nullable|max:255',
             'price' => 'nullable|max:20',
             'series' => 'nullable|max:50',
