@@ -61,7 +61,7 @@
                                         <form class="d-inline" action="{{route('comics.destroy',$comic)}}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="button" class="btn btn-danger">Yes, Delete it</button>
+                                            <button type="submit" class="btn btn-danger">Yes, Delete it</button>
                                         </form>
                                     </div>
                                 </div>
