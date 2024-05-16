@@ -37,11 +37,50 @@
                         <td width="180s">
                            <a class="btn btn-secondary" href="{{route('comics.show',$comic)}}">👁</a>
                            <a class="btn btn-dark" href="{{route('comics.edit',$comic)}}">🖊</a> 
-                           <form class="d-inline" action="{{route('comics.destroy',$comic)}}" method="post">
+                           <!-- Modal trigger button -->
+                           <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalId-{{$comic->id}}">
+                            🗑
+                           </button>
+                           
+                           <!-- Modal Body -->
+                           <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+                           <div class="modal fade" id="modalId-{{$comic->id}}" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalTitleId">
+                                            Deleting {{$comic->title}}
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">Attention! You are deleting this comic, this action is irreversible. Do you want to continue?</div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                            No, Go back
+                                        </button>
+                                        <form class="d-inline" action="{{route('comics.destroy',$comic)}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="button" class="btn btn-danger">Yes, Delete it</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                           </div>
+                           
+                           <!-- Optional: Place to the bottom of scripts -->
+                           <script>
+                            const myModal = new bootstrap.Modal(
+                                document.getElementById("modalId"),
+                                options,
+                            );
+                           </script>
+                           
+                           {{-- <form class="d-inline" action="{{route('comics.destroy',$comic)}}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button class="btn btn-danger" type="submit">🗑</button>
-                            </form>
+                                <button type="button" class="btn btn-primary">Yes, Delete it</button>
+                            </form> --}}
                         </td>
                     </tr>
                     @empty
