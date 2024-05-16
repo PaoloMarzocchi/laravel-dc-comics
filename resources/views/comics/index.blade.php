@@ -35,7 +35,8 @@
                         <td>{{$comic->type}}</td>
                         <td>{{$comic->price}}</td>
                         <td>
-                           <a class="text-decoration-none" href="{{route('comics.show',$comic)}}">👁</a> /Edit/Delete
+                           <a class="btn btn-secondary" href="{{route('comics.show',$comic)}}">👁</a>
+                           <a class="btn btn-dark" href="{{route('comics.edit',$comic)}}">🖊</a> /Delete
                         </td>
                     </tr>
                     @empty

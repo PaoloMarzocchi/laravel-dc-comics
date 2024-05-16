@@ -12,8 +12,8 @@ class ComicController extends Controller
      */
     public function index()
     {
-        //$comics = Comic::all()->sortByDesc('id')->paginate(6);
-
+        //$comics = Comic::orderByDesc('id')->paginate(6);
+        //dd($comics);
         return view('comics.index', ['comics' => Comic::orderByDesc('id')->paginate(6)]);
     }
 
@@ -61,7 +61,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -69,7 +69,10 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+        //dd($data);
+        $comic->update($data);
+        return to_route('comics.show', $comic);
     }
 
     /**
