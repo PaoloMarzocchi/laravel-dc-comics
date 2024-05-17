@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
@@ -28,32 +30,13 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
         //$data = $request->all();
         //dd($data);
-        /*
-        $comic = new Comic();
-        $comic->title = $data['title'];
-        $comic->description = $data['description'];
-        $comic->thumb = $data['thumb'];
-        $comic->price = $data['price'];
-        $comic->series = $data['series'];
-        $comic->sale_date = $data['sale_date'];
-        $comic->type = $data['type'];
-        $comic->save(); */
-        $data = $request->validate([
-            'title' => 'required|min:3|max:100',
-            'description' => 'nullable|max:5000',
-            'thumb' => 'nullable|max:255',
-            'price' => 'nullable|max:20',
-            'series' => 'nullable|max:50',
-            'sale_date' => 'nullable|date_format:Y-m-d',
-            'type' => 'nullable|max:30',
-        ]);
+        $data = $request->validated();
         //dd($data);
         Comic::create($data);
-
 
         return to_route('comics.index');
     }
@@ -77,19 +60,11 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
         //$data = $request->all();
         //dd($data);
-        $data = $request->validate([
-            'title' => 'required|min:3|max:100',
-            'description' => 'nullable|max:5000',
-            'thumb' => 'nullable|max:255',
-            'price' => 'nullable|max:20',
-            'series' => 'nullable|max:50',
-            'sale_date' => 'nullable|date_format:Y-m-d',
-            'type' => 'nullable|max:30',
-        ]);
+        $data = $request->validated();
         $comic->update($data);
         return to_route('comics.show', $comic);
     }
