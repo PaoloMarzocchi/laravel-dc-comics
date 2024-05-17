@@ -1,1 +1,69 @@
-@import '~bootstrap/scss/bootstrap';
+@use '~bootstrap/scss/bootstrap';
+
+.my-active {
+    background-color: green;
+    color: white;
+    border: 1px solid rgb(2, 83, 2);
+    border-radius: 10px;
+
+    &:hover {
+        background-color: green;
+        color: white;
+        border: 1px solid rgb(2, 83, 2);
+        border-radius: 10px;
+    }
+}
+
+.my-disabled {
+    border: 1px solid rgb(2, 83, 2);
+    color: green;
+    border-radius: 10px;
+
+    &:hover {
+        border: 1px solid rgb(2, 83, 2);
+        color: green;
+        border-radius: 10px;
+    }
+}
+
+.my-arrow-disabled {
+    /* border: 1px solid green; */
+    color: rgb(2, 83, 2);
+    background-color: rgba(173, 233, 173, 0.986);
+    z-index: 0;
+    border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-radius: 10px;
+
+    &:hover {
+        color: rgb(2, 83, 2);
+        background-color: rgba(173, 233, 173, 0.986);
+        z-index: 0;
+        border-top-left-radius: 10px;
+        border-top-left-radius: 10px;
+        border-radius: 10px;
+    }
+}
+
+.my-arrow-active {
+    /* border: 1px solid green; */
+    color: rgba(173, 233, 173, 0.986);
+    background-color: green;
+    z-index: 0;
+    border-radius: 10px;
+    /* border-radius: 10px; */
+
+    &:hover {
+        color: rgba(173, 233, 173, 0.986);
+        background-color: green;
+        z-index: 0;
+    }
+}
+
+.my-text-paginate {
+    color: rgb(10, 128, 10);
+}
+
+.my-table-success {
+    background-color: rgb(120, 153, 60);
+}

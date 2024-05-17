@@ -6,14 +6,13 @@
     <div class="container">
         <div class="d-flex justify-content-between align-items-center py-3">
             <h2>Comics</h2>
-            <a class="btn btn-warning" href="{{route('comics.create')}}">Add comic</a>
+            <a class="btn btn-success" href="{{route('comics.create')}}">Add comic</a>
         </div>
-        {{$comics->links('pagination::bootstrap-5')}}
+        {{$comics->links('pagination::my-custom')}}
         <div class="table-responsive">
-            <table
-                class="table table-success table-bordered table-striped">
+            <table class="table table-success table-bordered table-striped">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th scope="col">Image</th>
                         <th scope="col">Title</th>
                         <th scope="col">Sale date</th>
@@ -25,7 +24,7 @@
                 </thead>
                 <tbody>
                     @forelse($comics as $comic)
-                    <tr class="">
+                    <tr class="text-center">
                         <td scope="row">
                             <img width="100" src="{{$comic->thumb}}" alt="">
                         </td>
@@ -99,7 +98,7 @@
                 </tbody>
             </table>
         </div>
-        {{$comics->links('pagination::bootstrap-5')}}
+        {{$comics->links('pagination::my-custom')}}
     </div>
 </section>
 
