@@ -4,15 +4,11 @@
 
 <section class="py-5">
     <div class="container">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+        <div class="d-flex justify-content-end gap-3 py-3">
+            <a class="btn btn-secondary" href="{{route('comics.index')}}">Go Back</a>
         </div>
-        @endif
+        @include('partials.errors-form-message')
+
         <form action="{{route('comics.store')}}" method="post">
             @csrf
 
